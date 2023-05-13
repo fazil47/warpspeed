@@ -1,3 +1,4 @@
+import { NextResponse } from "next/server";
 import fs from "node:fs";
 
 export async function POST(req: Request) {
@@ -12,9 +13,6 @@ export async function POST(req: Request) {
 
   const formData = new FormData();
 
-  // NOTE: This example is using a NodeJS FormData library.
-  // Browsers should use their native FormData class.
-  // React Native apps should also use their native FormData class.
   formData.append("init_image", receivedformData.get("image") as Blob);
   formData.append("init_image_mode", "IMAGE_STRENGTH");
   formData.append("image_strength", receivedformData.get("strength") as string);
@@ -26,8 +24,6 @@ export async function POST(req: Request) {
   formData.append("clip_guidance_preset", "FAST_BLUE");
   formData.append("samples", "1");
   formData.append("steps", "30");
-
-  console.log(formData);
 
   const response = await fetch(
     `${apiHost}/v1/generation/${engineId}/image-to-image`,
@@ -55,14 +51,15 @@ export async function POST(req: Request) {
 
   const responseJSON = (await response.json()) as GenerationResponse;
 
-  console.log(responseJSON);
+  let promptWords = receivedformData.get("prompt")?.toString().split(" ");
 
+  let imageName = promptWords?.join("_") + ".png";
   responseJSON.artifacts.forEach((image, index) => {
     fs.writeFileSync(
-      `v1_img2img_${index}.png`,
+      `./public/generated/${imageName}`,
       Buffer.from(image.base64, "base64")
     );
   });
 
-  return new Response("OK");
+  return NextResponse.json(imageName);
 }
