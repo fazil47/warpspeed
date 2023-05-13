@@ -60,21 +60,21 @@ export default function Home() {
       
       <SceneContainer>
         <section className="flex flex-row justify-evenly py-12 w-full px-12">
-          <div className="flex flex-col justify-center w-1/2">
-            <h1 className="flex justify-start  text-center md:text-left text-6xl font-bold py-4 text-white">
-              Welcome to [Website Name], the ultimate platform for creating and enhancing 3D models!
+          <div className="flex mr-0 flex-col justify-center w-1/2">
+            <h1 className="flex pl-16 justify-stretch text-center md:text-left text-6xl font-bold py-4 text-white">
+              Welcome to the ultimate platform for creating 3d models and enhancing respective picture!
             </h1>
-            <p className="flex justify-start  text-left text-lg py-4 text-white">
+            <p className=" flex pl-16 justify-stretch  text-left text-lg py-4 text-white">
               Our website is designed to provide you with the tools and resources you need to create stunning 3D models
               and take your design skills to the next level. With our easy-to-use 3D model editor, you can shape, texture,
               and add details to your models with ease. Whether you're a seasoned professional or just starting out, our
-              editor offers everything you need to create the perfect model.
+              editor offers everything you need to create the perfect model. You can enhance the shape, texture and other detail of the picture of 3d object using generative AI, in our platform. 
             </p>
             <div className="flex flex-col items-center justify-center" >
-            <button className="h-12 w-64 mt-12 px-5 m-2 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800">Open</button>
+            <button className="h-12 w-64 mt-12 px-5 m-2 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800">Start</button>
             </div>
           </div>
-          <div className="w-1/2">
+          <div className="w-1/3">
             <Image
               src="/hahaha.png"
               alt="3D image"
