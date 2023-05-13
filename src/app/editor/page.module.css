@@ -1,0 +1,3 @@
+.main {
+  @apply flex flex-col justify-between align-middle items-center p-2 h-screen;
+}
