@@ -1,10 +1,18 @@
 "use client";
 
 import { Canvas } from "@react-three/fiber";
-import { GizmoHelper, GizmoViewcube, Grid, Sky } from "@react-three/drei";
+import {
+  GizmoHelper,
+  GizmoViewcube,
+  GizmoViewport,
+  Grid,
+  Sky,
+} from "@react-three/drei";
 import { useControls } from "leva";
 
 import styles from "./SceneEditor.module.css";
+import SceneObjects from "@/components/SceneObjects";
+import FirstPersonControlsComponent from "@/components/FirstPersonControlsComponent";
 import { Vector3 } from "three";
 
 export default function SceneEditor() {
@@ -13,12 +21,20 @@ export default function SceneEditor() {
     intensity: 1.0,
   });
 
-  const stableDiffusionParams = useControls("Stable Diffusion", {
-    todo: "todo",
-  });
-
   return (
     <Canvas className={styles.canvas}>
+      <FirstPersonControlsComponent />
+      <SceneObjects>
+        <mesh>
+          <boxGeometry args={[1, 1, 1]} />
+          <meshStandardMaterial color="hotpink" />
+        </mesh>
+        <mesh position={[1, 0, 0]}>
+          <boxGeometry args={[1, 1, 1]} />
+          <meshStandardMaterial color="orange" />
+        </mesh>
+        <pointLight position={[10, 10, 10]} />
+      </SceneObjects>
       <Sky distance={450000} sunPosition={[0, 1, 0]} />
       <ambientLight
         color={ambientLightControls.color}

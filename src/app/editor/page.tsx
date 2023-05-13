@@ -30,7 +30,7 @@ export default function Editor() {
 
   return (
     <main className={styles.main}>
-      {/* <SceneEditor /> */}
+      <SceneEditor />
       <form onSubmit={generateImage}>
         <label>
           Image Strength:
