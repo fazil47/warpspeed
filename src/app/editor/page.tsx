@@ -2,6 +2,7 @@
 import { useState } from "react";
 import styles from "./page.module.css";
 import SceneEditor from "@/components/SceneEditor";
+import html2canvas from "html2canvas";
 
 export default function Editor() {
   const [image, setImage] = useState<File>();
@@ -30,7 +31,7 @@ export default function Editor() {
 
   return (
     <main className={styles.main}>
-      {/* <SceneEditor /> */}
+      <SceneEditor />
       <form onSubmit={generateImage}>
         <label>
           Image Strength:
