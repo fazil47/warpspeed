@@ -9,6 +9,9 @@ import {
   Sky,
 } from "@react-three/drei";
 import { useControls } from "leva";
+import { useThree } from "@react-three/fiber";
+import { useEffect, useRef } from "react";
+import html2canvas from "html2canvas";
 
 import styles from "./SceneEditor.module.css";
 import SceneObjects from "@/components/SceneObjects";
@@ -16,6 +19,21 @@ import FirstPersonControlsComponent from "@/components/FirstPersonControlsCompon
 import { Vector3 } from "three";
 
 export default function SceneEditor() {
+  const canvas = useThree((state)=>state.gl.domElement)
+
+
+  useEffect(() => {
+    // Render the Three.js scene and convert it to an image
+    html2canvas(canvas).then((canvas2) => {
+      const imageData = canvas2.toDataURL();
+      const additionalData = {
+        numbers: [1, 2, 3],
+        strings: ['Hello', 'World'],
+      };
+      sendImageToServer(imageData, additionalData);
+    });
+  }, []);
+
   const ambientLightControls = useControls("Ambient Light", {
     color: "#ffffff",
     intensity: 1.0,
@@ -54,3 +72,7 @@ export default function SceneEditor() {
     </Canvas>
   );
 }
+function sendImageToServer(imageData: string, additionalData: { numbers: number[]; strings: string[]; }) {
+  throw new Error("Function not implemented.");
+}
+
