@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, FormEvent } from "react";
 import styles from "./page.module.css";
 import SceneEditor from "@/components/SceneEditor";
 import Image from "next/image";
@@ -10,7 +10,7 @@ export default function Editor() {
   const [strength, setStrength] = useState<number>(0.3);
   const [outputImageURL, setOutputImageURL] = useState<string>("");
 
-  async function generateImage(e: React.FormEvent<HTMLFormElement>) {
+  async function generateImage(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
     if (!image) return;
