@@ -10,7 +10,7 @@ function fileToBuffer(file) {
 
 export async function POST(req: Request) {
   const receivedformData = await req.formData();
-  console.log(receivedformData.get("image"));
+  // console.log(receivedformData.get("image"));
 
   // Resize image dimensions to be a multiple of 64
   // and reduce the size of the image to a maximum of 512x512
