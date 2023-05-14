@@ -18,11 +18,13 @@
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",
     "@types/three": "^0.150.2",
+    "@web-std/file": "^3.0.2",
     "eslint": "8.40.0",
     "eslint-config-next": "13.4.1",
     "firebase": "^9.22.0",
     "form-data": "^4.0.0",
     "html2canvas": "^1.4.1",
+    "jimp": "^0.22.8",
     "leva": "^0.9.34",
     "next": "13.4.1",
     "next-auth": "^4.22.1",
@@ -30,9 +32,10 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-firebaseui": "^6.0.0",
-    "react-three-fiber": "^6.0.13",
+    "tailwind-styled-components": "^2.2.0",
     "three": "^0.151.3",
-    "typescript": "5.0.4"
+    "typescript": "5.0.4",
+    "use-react-screenshot": "^3.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",

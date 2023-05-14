@@ -1,8 +1,6 @@
-
 import React, { useEffect, useRef } from "react";
 import Head from "next/head";
 import tw from "tailwind-styled-components";
-import * as THREE from "three";
 
 const Container = tw.div`
   flex
@@ -65,7 +63,7 @@ const Description = tw.div`
 
 export default function Home() {
   return (
-    <Container >
+    <Container>
       <Head>
         <title>My 3D Website</title>
       </Head>
@@ -73,20 +71,23 @@ export default function Home() {
         <Logo src="/logo.png" />
       </Header> */}
       <section className="justify-evenly py-12 w-6/12 px-12 ">
-       
         <h1 className="text-center md:text-left text-6xl font-bold py-4 text-white">
-          Welcome to [Website Name], the ultimate platform for creating and enhancing 3D models!
+          Welcome to [Website Name], the ultimate platform for creating and
+          enhancing 3D models!
         </h1>
-          <p className="text-left text-lg py-4">
-            Our website is designed to provide you with the tools and resources you need to create stunning 3D models and take your design skills to the next level. With our easy-to-use 3D model editor, you can shape, texture, and add details to your models with ease. Whether you're a seasoned professional or just starting out, our editor offers everything you need to create the perfect model.
-          </p>
-          
-          <button className=" p-6 inline-flex items-center h-10 px-5 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800">Interact</button>
-          
+        <p className="text-left text-lg py-4">
+          Our website is designed to provide you with the tools and resources
+          you need to create stunning 3D models and take your design skills to
+          the next level. With our easy-to-use 3D model editor, you can shape,
+          texture, and add details to your models with ease. Whether you're a
+          seasoned professional or just starting out, our editor offers
+          everything you need to create the perfect model.
+        </p>
 
+        <button className=" p-6 inline-flex items-center h-10 px-5 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800">
+          Interact
+        </button>
       </section>
-      
     </Container>
   );
-};
-
+}

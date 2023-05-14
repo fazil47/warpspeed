@@ -10,16 +10,12 @@ export default function Editor() {
   const [strength, setStrength] = useState<number>(0.3);
   const [outputImageURL, setOutputImageURL] = useState<string>("");
 
-  async function generateImage(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-
-    if (!image) return;
-
+  async function generateImage(image: any, prompt: string, strength: number) {
     const formData = new FormData();
 
     formData.append("image", image);
     formData.append("prompt", prompt);
-    formData.append("strength", strength.toString());
+    formData.append("strength", strength);
     formData.append("apiHost", "https://api.stability.ai");
 
     const response = await fetch("/api/generate", {
@@ -54,8 +50,21 @@ export default function Editor() {
 
   return (
     <main className={styles.main}>
-      <SceneEditor />
-      <form onSubmit={generateImage}>
+      <SceneEditor
+        // generateImage={generateImage}
+        generateImageCallback={(imageDataURL, prompt, imageStrength) => {
+          const imageBase64 = imageDataURL.split(",")[1];
+          const imageBuffer = Buffer.from(imageBase64, "base64");
+          const image = new File([imageBuffer], "image.png", {
+            type: "image/png",
+          });
+          // setImage(imageBase64);
+          // const prompt = "A painting of two cats";
+          // const strength = 0.6;
+          generateImage(image, prompt, imageStrength);
+        }}
+      />
+      {/* <form onSubmit={generateImage}>
         <label>
           Image Strength:
           <input
@@ -89,11 +98,11 @@ export default function Editor() {
           />
         </label>
         <button type="submit">Generate</button>
-      </form>
+      </form> */}
       {outputImageURL ? (
         <Image
           alt="Output Image"
-          src={outputImageURL}
+          src={`${outputImageURL}?${performance.now()}}`}
           width={500}
           height={500}
         />
