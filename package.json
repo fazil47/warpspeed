@@ -31,6 +31,7 @@
     "react-dom": "18.2.0",
     "react-firebaseui": "^6.0.0",
     "react-three-fiber": "^6.0.13",
+    "tailwind-styled-components": "^2.2.0",
     "three": "^0.151.3",
     "typescript": "5.0.4"
   },

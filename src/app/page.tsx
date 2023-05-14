@@ -2,6 +2,7 @@ import React from "react";
 import Head from "next/head";
 import tw from "tailwind-styled-components";
 import Image from "next/image";
+import Link from "next/link";
 
 const Container = tw.div`
   flex
@@ -71,15 +72,17 @@ export default function Home() {
               editor offers everything you need to create the perfect model. You can enhance the shape, texture and other detail of the picture of 3d object using generative AI, in our platform. 
             </p>
             <div className="flex flex-col items-center justify-center" >
-            <button className="h-12 w-64 mt-12 px-5 m-2 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800">Start</button>
+              <Link href="/editor">
+                <button className="h-12 w-64 mt-12 px-5 m-2 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800" >Start</button>
+              </Link>
             </div>
           </div>
-          <div className="w-1/3">
+          <div className="rounded-full">
             <Image
               src="/hahaha.png"
               alt="3D image"
-              width={800}
-              height={600}
+              width={600}
+              height={800}
               objectFit="cover"
               className="object-cover w-full h-full"
             />
