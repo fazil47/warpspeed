@@ -81,8 +81,8 @@ export default function Home() {
             <Image
               src="/hahaha.png"
               alt="3D image"
-              width={600}
-              height={800}
+              width={800}
+              height={600}
               objectFit="cover"
               className="object-cover w-full h-full"
             />
