@@ -61,7 +61,7 @@ export default function Editor() {
           // setImage(imageBase64);
           // const prompt = "A painting of two cats";
           // const strength = 0.6;
-          generateImage(image, prompt, imageStrength);
+          generateImage(imageBase64, prompt, imageStrength);
         }}
       />
       {/* <form onSubmit={generateImage}>

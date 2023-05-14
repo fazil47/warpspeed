@@ -17,8 +17,11 @@ export async function POST(req: Request) {
   // First save image to disk and then read it with Jimp
   // Then delete the image from disk
 
-  const imageBuffer = fileToBuffer(receivedformData.get("image"));
-  fs.writeFileSync("./public/input/image.png", Buffer.from(imageBuffer));
+  const imageBase64 = receivedformData.get("image");
+
+  // const imageBuffer = fileToBuffer(receivedformData.get("image"));
+  const imageBuffer = Buffer.from(imageBase64 as any, "base64");
+  fs.writeFileSync("./public/input/image.png", imageBuffer);
 
   const image = await Jimp.read("./public/input/image.png");
   const width = image.getWidth();
