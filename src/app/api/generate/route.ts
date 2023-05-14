@@ -3,6 +3,11 @@ import Jimp from "jimp";
 import { File } from "@web-std/file";
 import fs from "node:fs";
 
+function fileToBuffer(file) {
+  const buffer = fs.readFileSync(file.path);
+  return buffer;
+}
+
 export async function POST(req: Request) {
   const receivedformData = await req.formData();
   console.log(receivedformData.get("image"));
@@ -12,9 +17,7 @@ export async function POST(req: Request) {
   // First save image to disk and then read it with Jimp
   // Then delete the image from disk
 
-  const imageBuffer = await (
-    (await receivedformData.get("image")) as any
-  )?.arrayBuffer();
+  const imageBuffer = fileToBuffer(receivedformData.get("image"));
   fs.writeFileSync("./public/input/image.png", Buffer.from(imageBuffer));
 
   const image = await Jimp.read("./public/input/image.png");
