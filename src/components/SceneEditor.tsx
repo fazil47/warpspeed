@@ -47,7 +47,7 @@ export default function SceneEditor({
   });
 
   const stableDiffusionControls = useControls("Stable Diffusion", {
-    imageStrength: 0.3,
+    imageStrength: 0.6,
     prompt: "A painting of two cats",
     generate: button(() => {
       setTakeScreenshot(true);
