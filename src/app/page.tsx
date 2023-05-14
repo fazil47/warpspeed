@@ -71,7 +71,7 @@ export default function Home() {
               resources you need to create stunning 3D models and take your
               design skills to the next level. With our easy-to-use 3D model
               editor, you can shape, texture, and add details to your models
-              with ease. Whether you're a seasoned professional or just starting
+              with ease. Whether you`&apos;`re a seasoned professional or just starting
               out, our editor offers everything you need to create the perfect
               model. You can enhance the shape, texture and other detail of the
               picture of 3d object using generative AI, in our platform.

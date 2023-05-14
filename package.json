@@ -26,6 +26,7 @@
     "html2canvas": "^1.4.1",
     "jimp": "^0.22.8",
     "leva": "^0.9.34",
+    "lodash.clamp": "^4.0.3",
     "next": "13.4.1",
     "next-auth": "^4.22.1",
     "node-fetch": "^3.3.1",

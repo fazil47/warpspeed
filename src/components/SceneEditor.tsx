@@ -21,10 +21,8 @@ import { useRef, useState } from "react";
 import html2canvas from "html2canvas";
 
 export default function SceneEditor({
-  generateImage,
   generateImageCallback,
 }: {
-  generateImage: (image: string, prompt: string, strength: number) => void;
   generateImageCallback: (
     imageDataURL: string,
     prompt: string,

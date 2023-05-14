@@ -3,6 +3,15 @@ import Jimp from "jimp";
 import { File } from "@web-std/file";
 import fs from "node:fs";
 
+function toArrayBuffer(buffer: any) {
+  const arrayBuffer = new ArrayBuffer(buffer.length);
+  const view = new Uint8Array(arrayBuffer);
+  for (let i = 0; i < buffer.length; i++) {
+    view[i] = buffer[i];
+  }
+  return arrayBuffer;
+}
+
 export async function POST(req: Request) {
   const receivedformData = await req.formData();
   console.log(receivedformData.get("image"));
@@ -12,7 +21,13 @@ export async function POST(req: Request) {
   // First save image to disk and then read it with Jimp
   // Then delete the image from disk
 
-  const imageBuffer = await receivedformData.get("image")?.arrayBuffer();
+  if (!receivedformData.get("image")) {
+    return NextResponse.json({ error: "No image data" });
+  }
+
+  const imageBuffer = toArrayBuffer(receivedformData.get("image"));
+
+  // const imageBuffer = await imageData.arrayBuffer();
   fs.writeFileSync("./public/input/image.png", Buffer.from(imageBuffer));
 
   const image = await Jimp.read("./public/input/image.png");
@@ -32,13 +47,6 @@ export async function POST(req: Request) {
   // const imageToStability = fs.readFileSync("./public/input/image.png");
 
   fs.unlinkSync("./public/input/image.png");
-
-  // const image = await Jimp.read(receivedformData.get("image") as Buffer);
-  // const width = image.getWidth();
-  // const height = image.getHeight();
-  // const newWidth = Math.ceil(width / 64) * 64;
-  // const newHeight = Math.ceil(height / 64) * 64;
-  // image.resize(newWidth, newHeight);
 
   const engineId = "stable-diffusion-v1-5";
   const apiHost = receivedformData.get("apiHost") ?? "https://api.stability.ai";

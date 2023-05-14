@@ -15,7 +15,7 @@ export default function Editor() {
 
     formData.append("image", image);
     formData.append("prompt", prompt);
-    formData.append("strength", strength);
+    formData.append("strength", strength.toString());
     formData.append("apiHost", "https://api.stability.ai");
 
     const response = await fetch("/api/generate", {

@@ -35,6 +35,8 @@ export const SphereScale: React.FC<{
   direction: THREE.Vector3;
   axis: 0 | 1 | 2;
 }> = ({ direction, axis }) => {
+  // ignore that object is not in the context
+  // @ts-ignore
   const {
     translation,
     translationLimits,
@@ -50,7 +52,7 @@ export const SphereScale: React.FC<{
     onDragEnd,
     userData,
     object,
-  } = React.useContext(context);
+  } = React.useContext(context) as any;
 
   // @ts-expect-error new in @react-three/fiber@7.0.5
   const camControls = useThree((state) => state.controls) as {

@@ -8,7 +8,7 @@ export default function Screenshot({
   takeScreenshotCallback,
 }: {
   takeScreenshot: boolean;
-  takeScreenshotCallback: (takeScreenshot: boolean) => void;
+  takeScreenshotCallback: (takeScreenshot: boolean, dataURL: any) => void;
 }) {
   const { gl, scene, camera } = useThree();
 
