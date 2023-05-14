@@ -1,8 +1,7 @@
-
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import Head from "next/head";
 import tw from "tailwind-styled-components";
-import * as THREE from "three";
+import Image from "next/image";
 
 const Container = tw.div`
   flex
@@ -36,17 +35,6 @@ const NavLink = tw.a`
   ml-6
 `;
 
-// const CTAButton = tw.button`
-//   px-6
-//   py-3
-//   text-white
-//   font-semibold
-//   rounded-full
-//   bg-gradient-to-r from-blue-500 to-purple-500
-//   hover:bg-gradient-to-r from-blue-600 to-purple-600
-//   shadow-lg
-// `;
-
 const SceneContainer = tw.div`
   flex-1
   overflow-hidden
@@ -65,28 +53,40 @@ const Description = tw.div`
 
 export default function Home() {
   return (
-    <Container >
+    <Container>
       <Head>
         <title>My 3D Website</title>
       </Head>
-      {/* <Header>
-        <Logo src="/logo.png" />
-      </Header> */}
-      <section className="justify-evenly py-12 w-6/12 px-12 ">
-       
-        <h1 className="text-center md:text-left text-6xl font-bold py-4 text-white">
-          Welcome to [Website Name], the ultimate platform for creating and enhancing 3D models!
-        </h1>
-          <p className="text-left text-lg py-4">
-            Our website is designed to provide you with the tools and resources you need to create stunning 3D models and take your design skills to the next level. With our easy-to-use 3D model editor, you can shape, texture, and add details to your models with ease. Whether you're a seasoned professional or just starting out, our editor offers everything you need to create the perfect model.
-          </p>
-          
-          <button className=" p-6 inline-flex items-center h-10 px-5 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800">Interact</button>
-          
-
-      </section>
+      
+      <SceneContainer>
+        <section className="flex flex-row justify-evenly py-12 w-full px-12">
+          <div className="flex mr-0 flex-col justify-center w-1/2">
+            <h1 className="flex pl-16 justify-stretch text-center md:text-left text-6xl font-bold py-4 text-white">
+              Welcome to the ultimate platform for creating 3d models and enhancing respective picture!
+            </h1>
+            <p className=" flex pl-16 justify-stretch  text-left text-lg py-4 text-white">
+              Our website is designed to provide you with the tools and resources you need to create stunning 3D models
+              and take your design skills to the next level. With our easy-to-use 3D model editor, you can shape, texture,
+              and add details to your models with ease. Whether you're a seasoned professional or just starting out, our
+              editor offers everything you need to create the perfect model. You can enhance the shape, texture and other detail of the picture of 3d object using generative AI, in our platform. 
+            </p>
+            <div className="flex flex-col items-center justify-center" >
+            <button className="h-12 w-64 mt-12 px-5 m-2 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800">Start</button>
+            </div>
+          </div>
+          <div className="w-1/3">
+            <Image
+              src="/hahaha.png"
+              alt="3D image"
+              width={800}
+              height={600}
+              objectFit="cover"
+              className="object-cover w-full h-full"
+            />
+          </div>
+        </section>
+      </SceneContainer>
       
     </Container>
   );
-};
-
+}
